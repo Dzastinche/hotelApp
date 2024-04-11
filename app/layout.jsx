@@ -1,12 +1,17 @@
 import React from "react";
-import HomePage from "./page";
-
+import "@/assets/style.css";
+import Navigation from "../components/head";
+export const metadata = {
+  title: "Pulse][Properties",
+  description: "Pulse app",
+  keywords: "travel",
+};
 const HomeLayout = ({ children }) => {
-  console.log(children);
   return (
     <html lang="en">
       <body>
-        <div> HomeLayout {children}</div>
+        <Navigation></Navigation>
+        {children}
       </body>
     </html>
   );
