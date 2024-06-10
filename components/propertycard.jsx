@@ -4,7 +4,7 @@ import { IoLocationOutline, IoBed } from "react-icons/io5";
 import { FaBath } from "react-icons/fa";
 import { TbRulerMeasure } from "react-icons/tb";
 const Propertycard = ({ property }) => {
-  const { name, type, rates, beds, baths, location, images, square_feet } =
+  const { name, type, rates, beds, baths, location, images, square_feet, _id } =
     property;
   const payingFor = () => {
     if (rates.monthly) {
@@ -74,7 +74,7 @@ const Propertycard = ({ property }) => {
             <span className="text-orange-700">{location.city}</span>
           </div>
           <a
-            href="property.html"
+            href={`/properties/${_id}`}
             className="h-[36px] bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-center text-sm"
           >
             Details
