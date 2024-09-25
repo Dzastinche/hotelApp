@@ -3,9 +3,11 @@ import Image from "next/image";
 import { IoLocationOutline, IoBed } from "react-icons/io5";
 import { FaBath } from "react-icons/fa";
 import { TbRulerMeasure } from "react-icons/tb";
+
 const Propertycard = ({ property }) => {
   const { name, type, rates, beds, baths, location, images, square_feet, _id } =
     property;
+  console.log(property, "da");
   const payingFor = () => {
     if (rates.monthly) {
       return `${rates.monthly.toString()}/mnly`;
@@ -15,6 +17,7 @@ const Propertycard = ({ property }) => {
       return `${rates.nightly.toString()}/ngly`;
     }
   };
+
   return (
     <div className="rounded-xl shadow-md relative">
       <Image
@@ -52,10 +55,10 @@ const Propertycard = ({ property }) => {
         </div>
 
         <div className="flex justify-center gap-4 text-green-900 text-sm mb-4">
-          {Object.keys(rates).map((el) => {
+          {Object.keys(rates).map((el, i) => {
             const capitalize = (s) => s && s[0].toUpperCase() + s.slice(1);
             return (
-              <p>
+              <p key={i}>
                 <i className="fa-solid fa-money-bill"></i> {capitalize(el)}
               </p>
             );

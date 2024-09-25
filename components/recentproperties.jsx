@@ -2,8 +2,8 @@ import React from "react";
 import properties from "@/assets/properties.json";
 import Propertycard from "@/components/propertycard";
 
-const Recentproperties = () => {
-  const fewPropertyes = properties
+const Recentproperties = ({ data }) => {
+  const fewPropertyes = data
     .sort(() => Math.random() - Math.random())
     .slice(0, 3);
 

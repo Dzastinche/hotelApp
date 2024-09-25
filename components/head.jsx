@@ -6,13 +6,13 @@ import logo from "@/assets/logo.png";
 import profile from "@/assets/profile.png";
 import { FaGoogle } from "react-icons/fa";
 import { usePathname } from "next/navigation";
+import { signIn } from "next-auth/react";
 const Navigation = () => {
   const pathname = usePathname();
-  console.log(Link);
   const [isLogenin, logIn] = useState(false);
   const [isMenyClicked, setMenyClicked] = useState(false);
   const [isProfileClicked, setProfileClicked] = useState(false);
-  console.log(isLogenin);
+
   return (
     <nav className="bg-blue-700 border-b border-blue-500">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -27,7 +27,6 @@ const Navigation = () => {
               aria-expanded="false"
               onClick={() => {
                 setMenyClicked((prev) => {
-                  console.log("trazim", prev);
                   return !prev;
                 });
               }}
@@ -104,6 +103,7 @@ const Navigation = () => {
               {!isLogenin && (
                 <button
                   onClick={() => {
+                    signIn();
                     logIn(true);
                   }}
                   className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
